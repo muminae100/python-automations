@@ -27,8 +27,18 @@ def extract_news(url):
         cnt += ((str(i+1)+' :: '+ tag.text + "\n" + '<br>') if tag.text != 'More' else '')
     return (cnt)
 
-cnt = extract_news('https://news.vcombinator.com/')
+cnt = extract_news('https://news.ycombinator.com/')
 content += cnt
 content += ('<br>-------<br>')
 content += ('<br><br>End of Message')
+
+#sending email
+print('Composing email...')
+
+#email details
+SERVER = 'smtp.gmail.com'
+PORT = 587
+FROM ='smuminaetx100@gmail.com'
+TO = 'smuminaetx100@gmail.com'
+PASS ='muminaetx100'
 
