@@ -39,6 +39,17 @@ print('Composing email...')
 SERVER = 'smtp.gmail.com'
 PORT = 587
 FROM ='smuminaetx100@gmail.com'
-TO = 'smuminaetx100@gmail.com'
+TO = 'smuminaetx100@gmail.com' #can be list
 PASS ='muminaetx100'
 
+# msg body
+msg = MIMEMultipart()
+ 
+msg['Subject'] = 'Top News Stories Hacker News [Automated Email]' + ' ' + str(now.day) + '.' + str(now.month) + '.' + str(now.year)
+msg['From'] = FROM
+msg['To'] = TO
+
+msg.attach(MIMEText(content, 'html'))
+
+print('Initiating server...')
+server = smtplib.SMTP(SERVER, PORT)
